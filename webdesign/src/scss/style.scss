@@ -1,0 +1,245 @@
+/*
+Theme Name: 
+Theme URI: 
+Author: Ian Silva
+Author URI: http://github.com.br/iansilva6/
+Description:
+Version: 1.0
+*/
+
+/* ==========================================================================
+   Table of Contents
+   ========================================================================== */
+/*
+
+    1. Font Face
+    2. General
+    3. Utilities
+    4. Header
+    5. Page Content
+    6. Footer
+    7. Mixins
+    8. Media Queries
+
+ */
+
+/* ==========================================================================
+   1. Font Face - Sets up the website fonts
+   ========================================================================== */
+
+/* ==========================================================================
+   2. General - Setting up some base styles
+   ========================================================================== */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: white;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  text-rendering: optimizeLegibility!important;
+  line-height: 1!important;
+  font-weight: 700!important;
+  margin: 0!important;
+}
+
+#wrapper {
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden; }
+
+p, ul, ol {
+  margin: 0;
+  padding: 0; }
+
+ol ol, ul ul,
+ul ol, ol ul {
+  margin: 0.4em 0; }
+
+a:hover,
+a:focus,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: inherit; }
+
+a:active, a:focus {
+  outline: 0!important;
+  border: none!important;
+  -moz-outline-style: none!important;
+}
+
+:focus {outline:0 !important;}
+
+a[href], input[type='submit'], input[type='image'], label[for], select, button {
+  cursor: pointer; }
+
+input[type="text"], textarea {
+  display: inline-block; }
+
+.alinhar {
+  margin: 0 auto;
+}
+
+#motor {
+  display: none;
+}
+
+/* Margins */
+.margin10 {
+  margin-top: 10px;
+}
+.margin20 {
+  margin-top: 20px;
+}
+.margin30 {
+  margin-top: 30px;
+}
+.margin40 {
+  margin-top: 40px;
+}
+.margin50 {
+  margin-top: 50px;
+}
+.margin60 {
+  margin-top: 60px;
+}
+.margin70 {
+  margin-top: 70px;
+}
+.margin80 {
+  margin-top: 80px;
+}
+.margin90 {
+  margin-top: 90px;
+}
+.margin100 {
+  margin-top: 100px;
+}
+.margin200 {
+  margin-top: 200px;
+}
+/* ==========================================================================
+   3. Utilities - These things get used a lot
+   ========================================================================== */
+.clear-fix:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+tbody tr:nth-child(odd) {
+  background-color: #ccc; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.center {
+  text-align: center; }
+
+.hide {
+  display: none; }
+
+.nopadding {
+  padding: 0; }
+
+/* ==========================================================================
+   4. Header - The top of every page
+   ========================================================================== */
+/* MENU - TEMPLATE SHIT */
+.navbar-brand a img,
+.navbar-brand a svg {
+  height: 60px;
+  width: auto; }
+
+.navbar-brand .mobile a {
+  line-height: 50px; }
+
+.navbar-collapse {
+  float: right; }
+
+.navbar-collapse li {
+  float: left; }
+
+.navbar-collapse a {
+  display: block;
+  padding: 0 20px;
+  line-height: 60px; }
+
+.primary-menu:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+#menu {
+  padding: 20px 0; }
+
+/* ==========================================================================
+   5. Page Content - When you click on an individual page
+   ========================================================================== */
+
+/* ==========================================================================
+   6. Footer - The bottom of every page
+   ========================================================================== */
+
+/* ==========================================================================
+   7. Mixins
+   ========================================================================== */
+
+// Centralizar
+@mixin push--auto {
+    margin: { 
+        left: auto;
+        right: auto;
+    }
+}
+
+// Pseudoelementos
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+// Fonte
+@mixin font-source-sans($size: false, $colour: false, $weight: false,  $lh: false) {
+    font-family: 'Poppins', sans-serif;
+    @if $size { font-size: $size; }
+    @if $colour { color: $colour; }
+    @if $weight { font-weight: $weight; }
+    @if $lh { line-height: $lh; }
+}
+
+// Placeholders
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+//Z-index
+@function z($name) {
+    @if index($z-indexes, $name) {
+        @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+    } @else {
+        @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+        @return null;
+    }
+}
+
+/* ==========================================================================
+   8. Media Queries - 
+   ========================================================================== */
+@media (max-width: 992px) {}
+@media (max-width: 768px) {}
